@@ -94,7 +94,7 @@ class Github_Client
      * Call any path, GET method
      * Ex: $api->get('repos/show/my-username/my-repo')
      *
-     * @param   string  $path            the GitHub path
+     * @param   string  $path             the GitHub path
      * @param   array   $parameters       GET parameters
      * @param   array   $requestOptions   reconfigure the request
      * @return  array                     data returned
@@ -108,7 +108,7 @@ class Github_Client
      * Call any path, POST method
      * Ex: $api->post('repos/show/my-username', array('email' => 'my-new-email@provider.org'))
      *
-     * @param   string  $path            the GitHub path
+     * @param   string  $path             the GitHub path
      * @param   array   $parameters       POST parameters
      * @param   array   $requestOptions   reconfigure the request
      * @return  array                     data returned
@@ -116,6 +116,62 @@ class Github_Client
     public function post($path, array $parameters = array(), $requestOptions = array())
     {
         return $this->getHttpClient()->post($path, $parameters, $requestOptions);
+    }
+
+    /**
+     * Call any path, HEAD method
+     * Ex: $api->head('repos/show/my-username/my-repo')
+     *
+     * @param   string  $path             the GitHub path
+     * @param   array   $parameters       HEAD parameters
+     * @param   array   $requestOptions   reconfigure the request
+     * @return  array                     data returned
+     */
+    public function head($path, array $parameters = array(), $requestOptions = array())
+    {
+        return $this->getHttpClient()->head($path, $parameters, $requestOptions);
+    }
+
+    /**
+     * Call any path, PUT method
+     * Ex: $api->put('repos/show/my-username', array('email' => 'my-new-email@provider.org'))
+     *
+     * @param   string  $path             the GitHub path
+     * @param   array   $parameters       PUT parameters
+     * @param   array   $requestOptions   reconfigure the request
+     * @return  array                     data returned
+     */
+    public function put($path, array $parameters = array(), $requestOptions = array())
+    {
+        return $this->getHttpClient()->put($path, $parameters, $requestOptions);
+    }
+
+    /**
+     * Call any path, PATCH method
+     * Ex: $api->patch('repos/show/my-username/my-repo')
+     *
+     * @param   string  $path             the GitHub path
+     * @param   array   $parameters       PATCH parameters
+     * @param   array   $requestOptions   reconfigure the request
+     * @return  array                     data returned
+     */
+    public function patch($path, array $parameters = array(), $requestOptions = array())
+    {
+        return $this->getHttpClient()->patch($path, $parameters, $requestOptions);
+    }
+
+    /**
+     * Call any path, DELETE method
+     * Ex: $api->delete('repos/show/my-username', array('email' => 'my-new-email@provider.org'))
+     *
+     * @param   string  $path             the GitHub path
+     * @param   array   $parameters       DELETE parameters
+     * @param   array   $requestOptions   reconfigure the request
+     * @return  array                     data returned
+     */
+    public function delete($path, array $parameters = array(), $requestOptions = array())
+    {
+        return $this->getHttpClient()->delete($path, $parameters, $requestOptions);
     }
 
     /**

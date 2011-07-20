@@ -51,10 +51,37 @@ class Github_HttpClient_Curl extends Github_HttpClient
                 $url .= '?'.$queryString;
             } else {
                 $curlOptions += array(
-                    CURLOPT_POST => true,
                     CURLOPT_POSTFIELDS => $queryString
                 );
             }
+        }
+
+        $curlValue = true;
+        switch($httpMethod) {
+            case 'GET':
+                $curlMethod = CURLOPT_HTTPGET;
+                break;
+            case 'POST':
+                $curlMethod = CURLOPT_POST;
+                break;
+            case 'HEAD':
+                $curlMethod = CURLOPT_CUSTOMREQUEST;
+                $curlValue = "HEAD";
+                break;
+            case 'PUT':
+                $curlMethod = CURLOPT_CUSTOMREQUEST;
+                $curlValue = "PUT";
+                break;
+            case 'DELETE':
+                $curlMethod = CURLOPT_CUSTOMREQUEST;
+                $curlValue = "DELETE";
+                break;
+            case 'PATCH':
+                // since PATCH is new the end points accept as POST
+                $curlMethod = CURLOPT_POST;
+                break;
+            default:
+                throw new Github_HttpClient_Exception('Method currently not supported');
         }
 
         $curlOptions += array(
@@ -63,7 +90,8 @@ class Github_HttpClient_Curl extends Github_HttpClient
             CURLOPT_USERAGENT => $options['user_agent'],
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_TIMEOUT => $options['timeout']
+            CURLOPT_TIMEOUT => $options['timeout'],
+            $curlMethod => $curlValue
         );
 
         $response = $this->doCurlCall($curlOptions);

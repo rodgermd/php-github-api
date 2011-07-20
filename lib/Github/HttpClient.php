@@ -76,6 +76,63 @@ abstract class Github_HttpClient implements Github_HttpClientInterface
     }
 
     /**
+     * Send a PUT request
+     *
+     * @param  string   $path           Request path
+     * @param  array    $parameters     PUT Parameters
+     * @param  array    $options        reconfigure the request for this call only
+     *
+     * @return array                    Data
+     */
+    public function put($path, array $parameters = array(), array $options = array())
+    {
+        return $this->request($path, $parameters, 'PUT', $options);
+    }
+
+    /**
+     * Send a HEAD request
+     *
+     * @param  string   $path           Request path
+     * @param  array    $parameters     HEAD Parameters
+     * @param  array    $options        reconfigure the request for this call only
+     *
+     * @return array                    Data
+     */
+    public function head($path, array $parameters = array(), array $options = array())
+    {
+        return $this->request($path, $parameters, 'HEAD', $options);
+    }
+
+    /**
+     * Send a PATCH request
+     * PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept POST requests
+     *
+     * @param  string   $path           Request path
+     * @param  array    $parameters     PATCH Parameters
+     * @param  array    $options        reconfigure the request for this call only
+     *
+     * @return array                    Data
+     */
+    public function patch($path, array $parameters = array(), array $options = array())
+    {
+        return $this->request($path, $parameters, 'PATCH', $options);
+    }
+
+    /**
+     * Send a DELETE request
+     *
+     * @param  string   $path           Request path
+     * @param  array    $parameters     DELETE Parameters
+     * @param  array    $options        reconfigure the request for this call only
+     *
+     * @return array                    Data
+     */
+    public function delete($path, array $parameters = array(), array $options = array())
+    {
+        return $this->request($path, $parameters, 'DELETE', $options);
+    }
+
+    /**
      * Send a request to the server, receive a response,
      * decode the response and returns an associative array
      *
