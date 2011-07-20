@@ -48,7 +48,7 @@ class Github_Client
     /**
      * Instanciate a new GitHub client
      *
-     * @param  Github_HttpClient_Interface $httpClient custom http client
+     * @param  Github_HttpClientInterface $httpClient custom http client
      */
     public function __construct(Github_HttpClientInterface $httpClient = null)
     {
@@ -121,7 +121,7 @@ class Github_Client
     /**
      * Get the http client.
      *
-     * @return  Github_HttpClient_Interface   a request instance
+     * @return  Github_HttpClientInterface   a request instance
      */
     public function getHttpClient()
     {
@@ -131,11 +131,11 @@ class Github_Client
     /**
      * Inject another http client
      *
-     * @param   Github_HttpClient_Interface   a httpClient instance
+     * @param   Github_HttpClientInterface   a httpClient instance
      *
      * @return  null
      */
-    public function setHttpClient(Github_HttpClient_Interface $httpClient)
+    public function setHttpClient(Github_HttpClientInterface $httpClient)
     {
         $this->httpClient = $httpClient;
     }
