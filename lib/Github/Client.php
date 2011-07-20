@@ -34,7 +34,7 @@ class Github_Client
     /**
      * The httpClient instance used to communicate with GitHub
      *
-     * @var Github_HttpClient_Interface
+     * @var Github_HttpClientInterface
      */
     protected $httpClient = null;
 
