@@ -131,7 +131,7 @@ class Github_Client
     /**
      * Inject another http client
      *
-     * @param   Github_HttpClientInterface   a httpClient instance
+     * @param   Github_HttpClientInterface  $httpClient a httpClient instance
      *
      * @return  null
      */
@@ -242,7 +242,7 @@ class Github_Client
      * Inject an API instance
      *
      * @param   string                $name the API name
-     * @param   Github_ApiInterface  $api  the API instance
+     * @param   Github_ApiInterface  $instance  the API instance
      *
      * @return  null
      */

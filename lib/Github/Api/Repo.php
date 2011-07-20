@@ -98,7 +98,7 @@ class Github_Api_Repo extends Github_Api
      *
      * @param   string  $name             name of the repository
      * @param   string  $token            delete token
-     * @param   string  $force            force repository deletion
+     * @param   boolean  $force           force repository deletion
      *
      * @return  string|array              returns delete_token or repo status
      */

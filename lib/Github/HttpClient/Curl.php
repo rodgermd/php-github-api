@@ -11,7 +11,7 @@ class Github_HttpClient_Curl extends Github_HttpClient
     /**
      * Send a request to the server, receive a response
      *
-     * @param  string   $path          Request url
+     * @param  string   $url          Request url
      * @param  array    $parameters    Parameters
      * @param  string   $httpMethod    HTTP method to use
      * @param  array    $options       Request options

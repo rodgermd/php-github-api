@@ -167,7 +167,7 @@ class Github_Api_Issue extends Github_Api
      * @param   string  $username         the username
      * @param   string  $repo             the repo
      * @param   string  $issueNumber      the issue number
-     * @param   string  $comment          the comment body
+     * @param   string  $commentBody      the comment body
      * @return  array                     the created comment
      */
     public function addComment($username, $repo, $issueNumber, $commentBody)

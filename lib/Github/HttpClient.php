@@ -52,7 +52,6 @@ abstract class Github_HttpClient implements Github_HttpClientInterface
      *
      * @param  string   $path            Request path
      * @param  array    $parameters     GET Parameters
-     * @param  string   $httpMethod     HTTP method to use
      * @param  array    $options        Request options
      *
      * @return array                    Data
@@ -67,7 +66,6 @@ abstract class Github_HttpClient implements Github_HttpClientInterface
      *
      * @param  string   $path            Request path
      * @param  array    $parameters     POST Parameters
-     * @param  string   $httpMethod     HTTP method to use
      * @param  array    $options        reconfigure the request for this call only
      *
      * @return array                    Data
@@ -113,6 +111,8 @@ abstract class Github_HttpClient implements Github_HttpClientInterface
     /**
      * Get a JSON response and transform it to a PHP array
      *
+     * @param string $response
+     * @param array $options
      * @return  array   the response
      */
     protected function decodeResponse($response, array $options)

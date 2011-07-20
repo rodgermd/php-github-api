@@ -139,6 +139,8 @@ class Github_Api_User extends Github_Api
     /**
      * Add a public key to the authenticated user. Requires authentication.
      *
+     * @param string $title
+     * @param string $key
      * @return  array                    list of public keys of the user
      */
     public function addKey($title, $key)
@@ -151,6 +153,7 @@ class Github_Api_User extends Github_Api
     /**
      * Remove a public key from the authenticated user. Requires authentication.
      *
+     * @param string $id
      * @return  array                    list of public keys of the user
      */
     public function removeKey($id)
@@ -175,6 +178,7 @@ class Github_Api_User extends Github_Api
     /**
      * Add an email to the authenticated user. Requires authentication.
      *
+     * @param string $email
      * @return  array                     list of authenticated user emails
      */
     public function addEmail($email)
@@ -187,6 +191,7 @@ class Github_Api_User extends Github_Api
     /**
      * Remove an email from the authenticated user. Requires authentication.
      *
+     * @param string $email
      * @return  array                     list of authenticated user emails
      */
     public function removeEmail($email)

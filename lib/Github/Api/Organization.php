@@ -94,10 +94,10 @@ class Github_Api_Organization extends Github_Api
      * Add a team to that organization
      * http://develop.github.com/p/orgs.html
      *
-     * @param   string  $name             the organization name
+     * @param   string  $organization     the organization name
      * @param   string  $team             name of the new team
      * @param   string  $permission       its permission [PULL|PUSH|ADMIN]
-     * @param   array   $name             (optionnal) its repositories names
+     * @param   array   $repositories     (optionnal) its repositories names
      *
      * @return  array                     the teams
      */
