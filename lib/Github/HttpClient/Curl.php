@@ -51,7 +51,7 @@ class Github_HttpClient_Curl extends Github_HttpClient
                 $url .= '?'.$queryString;
             } else {
                 $curlOptions += array(
-                    CURLOPT_POSTFIELDS => $queryString
+                    CURLOPT_POSTFIELDS => json_encode($parameters),
                 );
             }
         }
