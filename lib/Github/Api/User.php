@@ -25,6 +25,20 @@ class Github_Api_User extends Github_Api
     }
 
     /**
+     * Search users by email
+     * http://develop.github.com/p/users.html#searching_for_users
+     *
+     * @param   string  $email            the email to search
+     * @return  array                     list of users found
+     */
+    public function searchEmail($email)
+    {
+        $response = $this->get('legacy/user/email/'.urlencode($email));
+
+        return $response['user'];
+    }
+
+    /**
      * Get extended information about a user by its username
      * http://develop.github.com/p/users.html#getting_user_information
      *
