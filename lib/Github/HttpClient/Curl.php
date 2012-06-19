@@ -34,6 +34,11 @@ class Github_HttpClient_Curl extends Github_HttpClient
                         CURLOPT_USERPWD => $options['login'].'/token:'.$options['secret'],
                     );
                     break;
+                case Github_Client::OAUTH_ACCESS_TOKEN:
+                    $parameters = array_merge(array(
+                        'access_token' => $options['secret']
+                            ), $parameters);
+                    break;
                 case Github_Client::AUTH_URL_TOKEN:
                 default:
                     $parameters = array_merge(array(
