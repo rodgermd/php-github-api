@@ -29,27 +29,27 @@ class Github_Api_Organization extends Github_Api
      */
     public function show($name)
     {
-        $response = $this->get('organizations/'.urlencode($name));
+        $response = $this->get('orgs/'.urlencode($name));
 
-        return $response['organization'];
+        return $response;
     }
 
     /**
-     * List all repositories across all the organizations that you can access
+     * List all repositories that you can access of that organizations 
      * http://develop.github.com/p/orgs.html
      *
-     * @param   string  $name             the user name
+     * @param   string  $name             the organization name
      * @return  array                     the repositories
      */
     public function getAllRepos($name)
     {
-        $response = $this->get('organizations/repositories');
+        $response = $this->get('orgs/'.urlencode($name).'/repos');
 
-        return $response['repositories'];
+        return $response;
     }
 
     /**
-     * List all public repositories of any other organization
+     * List all public repositories of that organization
      * http://develop.github.com/p/orgs.html
      *
      * @param   string  $name             the organization name
@@ -57,9 +57,9 @@ class Github_Api_Organization extends Github_Api
      */
     public function getPublicRepos($name)
     {
-        $response = $this->get('organizations/'.urlencode($name).'/public_repositories');
+        $response = $this->get('orgs/'.urlencode($name).'/repos', array('type' => 'public'));
 
-        return $response['repositories'];
+        return $response;
     }
 
     /**
@@ -71,9 +71,9 @@ class Github_Api_Organization extends Github_Api
      */
     public function getPublicMembers($name)
     {
-        $response = $this->get('organizations/'.urlencode($name).'/public_members');
+        $response = $this->get('orgs/'.urlencode($name).'/members');
 
-        return $response['users'];
+        return $response;
     }
 
     /**
@@ -85,9 +85,9 @@ class Github_Api_Organization extends Github_Api
      */
     public function getTeams($name)
     {
-        $response = $this->get('organizations/'.urlencode($name).'/teams');
+        $response = $this->get('orgs/'.urlencode($name).'/teams');
 
-        return $response['teams'];
+        return $response;
     }
 
     /**
@@ -107,13 +107,13 @@ class Github_Api_Organization extends Github_Api
             throw new InvalidArgumentException("Invalid value for the permission variable");
         }
 
-        $response = $this->post('organizations/'.urlencode($organization).'/teams', array(
-            'team' => $team,
+        $response = $this->post('orgs/'.urlencode($organization).'/teams', array(
+            'name' => $team,
             'permission' => $permission,
             'repo_names' => $repositories
         ));
 
-        return $response['teams'];
+        return $response;
     }
 
 }
