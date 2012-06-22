@@ -107,7 +107,7 @@ class Github_Api_Repo extends Github_Api
      *
      * @return  string|array              returns delete_token or repo status
      */
-    public function delete($username, $repo)
+    public function _delete($username, $repo)
     {
         $response = $this->delete('repos/'.urlencode($username).'/'.urlencode($repo));
     }
