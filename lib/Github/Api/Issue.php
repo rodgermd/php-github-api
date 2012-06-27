@@ -16,11 +16,13 @@ class Github_Api_Issue extends Github_Api
    * @param   string  $username         the username
    * @param   string  $repo             the repo
    * @param   string  $state            the issue state, can be open or closed
+   * @param   array $options
    * @return  array                     list of issues found
    */
-  public function getList($username, $repo, $state = 'open')
+  public function getList($username, $repo, $state = 'open', array $options = array())
   {
-    $response = $this->get('repos/' . urlencode($username) . '/' . urlencode($repo) . '/issues', array('state' => $state));
+    $options['state'] = $state;
+    $response = $this->get('repos/' . urlencode($username) . '/' . urlencode($repo) . '/issues', $options);
 
     return $response;
   }
